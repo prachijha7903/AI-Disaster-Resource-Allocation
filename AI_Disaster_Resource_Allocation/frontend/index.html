@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Disaster Resource Allocation System</title>
+    <link rel="stylesheet" href="style.css">
+    
+<link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+/>
+
+</head>
+<body>
+
+    <header>
+        <h1>AI Disaster Resource Allocation System</h1>
+        <p>Real-Time Disaster Monitoring and Relief Management</p>
+    </header>
+
+    <main>
+        <section class="welcome">
+            <h2>Disaster Management Dashboard</h2>
+            <p>Monitor affected zones and prioritize emergency relief resources.</p>
+        </section>
+
+        <section class="dashboard">
+            <div class="card">
+                <h3>Active Disaster Zones</h3>
+                <p id="zones">0</p>
+            </div>
+
+            <div class="card">
+                <h3>People Affected</h3>
+                <p id="people">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Available Resources</h3>
+                <p id="resources">0</p>
+            </div>
+        </section>
+        
+<section class="form-section">
+    <h2>Report a New Disaster</h2>
+
+    <form id="disaster-form">
+        <input
+            type="text"
+            id="zone-name"
+            placeholder="Disaster name (e.g., Flood Affected)"
+            required
+        >
+
+        <input
+            type="text"
+            id="zone-location"
+            placeholder="Location (e.g., Amritsar)"
+            required
+        >
+
+        <select id="zone-severity" required>
+            <option value="">Select severity</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+            <option value="Critical">Critical</option>
+        </select>
+
+        <input
+            type="number"
+            id="people-affected"
+            placeholder="People affected"
+            min="0"
+            required
+        >
+
+        <input
+            type="number"
+            id="resources-available"
+            placeholder="Resources available"
+            min="0"
+            required
+        >
+
+        <button type="submit">Submit Disaster Report</button>
+        <p id="form-message"></p>
+    </form>
+</section>
+  
+
+<section class="form-section">
+    <h2>Disaster Location Map</h2>
+    <p>View disaster zones and their reported priority levels.</p>
+    <div id="disaster-map"></div>
+    <p id="map-message">Loading disaster locations...</p>
+</section>
+
+<section class="form-section">
+    <h2>Current Weather Conditions</h2>
+    <p id="weather-location">Weather for Ludhiana</p>
+    <div id="weather-details">Loading weather data...</div>
+    <button id="refresh-weather" type="button">Refresh Weather</button>
+</section>
+
+<section class="form-section">
+    <h2>Disaster Priority Analytics</h2>
+    <canvas id="priorityChart"></canvas>
+</section>
+
+
+<section class="form-section">
+    <h2>Recommended Resource Allocation</h2>
+    <p>Suggested distribution of 100 relief resource units based on disaster priority.</p>
+    <button id="load-allocation" type="button">
+        View Allocation Recommendations
+    </button>
+    <div id="allocation-results"></div>
+</section>
+
+        <section class="reports">
+            <h2>Disaster Zone Reports</h2>
+            <p>Zone information and priority recommendations will appear here.</p>
+            <div id="report-list"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>AI-Based Disaster Resource Allocation Management System</p>
+    </footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <script src="script.js"></script>
+    
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</body>
+</html>
